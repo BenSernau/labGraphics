@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="image_height">200dp</dimen>
+    <dimen name="image_width">200dp</dimen>
+    <string name="app_name">GraphicsCanvasBubbleSurfaceView</string>
+    <string name="report_framerate">The framerate is %1$s</string>
+</resources>
