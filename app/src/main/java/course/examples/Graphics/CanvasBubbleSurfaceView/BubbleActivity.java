@@ -54,32 +54,7 @@ public class BubbleActivity extends Activity {
 		}));
 	}
 
-	@Override
-	public boolean onTouchEvent(MotionEvent event){
-		super.onTouchEvent(event);
-		int action = event.getAction();
-		float x = event.getX();
-		float y = event.getY();
-		float otherX = mBubbleView.getmX();
-		float otherY = mBubbleView.getmY();
-		switch(action) {
-			case MotionEvent.ACTION_DOWN:
-				if (x < otherX + 500 && x >= otherX && y < otherY && y >= otherY - 500) {
-					count++;
-					relativeLayout.removeAllViewsInLayout();
-					mBubbleView = new BubbleView(getApplicationContext(), BitmapFactory.decodeResource(getResources(), R.drawable.b256));
-					relativeLayout.addView(mBubbleView);
-				}
-				break;
-		}
 
-
-
-		Log.d("SCORE", "" + count);
-
-
-		return false;
-	}
 
 
 	/*
@@ -158,6 +133,28 @@ public class BubbleActivity extends Activity {
 			canvas.drawBitmap(mBitmap, mY, mX, mPainter);
 		}
 
+		@Override
+		public boolean onTouchEvent(MotionEvent event){
+			super.onTouchEvent(event);
+			int action = event.getAction();
+			float x = event.getX();
+			float y = event.getY();
+			float otherX = getmX();
+			float otherY = getmY();
+			switch(action) {
+				case MotionEvent.ACTION_DOWN:
+					if (x < otherX + 800 && x >= otherX - 600 && y < otherY + 800 && y >= otherY - 600) {
+						count++;
+						relativeLayout.removeAllViewsInLayout();
+						mBubbleView = new BubbleView(getApplicationContext(), BitmapFactory.decodeResource(getResources(), R.drawable.b256));
+						relativeLayout.addView(mBubbleView);
+					}
+					break;
+			}
+			Log.d("SCORE", "" + count);
+			return false;
+		}
+
 		/** True iff bubble can move. */
 		private boolean move() {
 
@@ -210,7 +207,7 @@ public class BubbleActivity extends Activity {
 							isLessThanTenSeconds = System.currentTimeMillis();
 						}
 
-						endTimeMillis = System.currentTimeMillis() - beginTimeMillis;
+						endTimeMillis = (System.currentTimeMillis() - beginTimeMillis)/60;
 						frameString = getString(R.string.report_framerate, Long.toString(endTimeMillis));
 						runThread();
 				}
