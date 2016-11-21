@@ -12,6 +12,7 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -43,6 +44,26 @@ public class BubbleActivity extends Activity {
 		mBubbleView = new BubbleView(getApplicationContext(), BitmapFactory.decodeResource(getResources(), R.drawable.b256));
 
 		relativeLayout.addView(mBubbleView);
+
+		/*mBubbleView.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				int action = event.getAction();
+				float x = event.getX();
+				float y = event.getY();
+				//float otherX = mBubbleView.getmX();
+				//float otherY = mBubbleView.getmY();
+				if (action == MotionEvent.ACTION_DOWN && x < mBubbleView.getmX() + 400 && x >= mBubbleView.getmX() - 300 && y < mBubbleView.getmY() + 400 && y >= mBubbleView.getmY() - 300) {
+					count++;
+					relativeLayout.removeAllViewsInLayout();
+					mBubbleView = new BubbleView(getApplicationContext(), BitmapFactory.decodeResource(getResources(), R.drawable.b256));
+					relativeLayout.addView(mBubbleView);
+					return true;
+				}
+				Log.d("SCORE", "" + count);
+				return false;
+			}
+		});*/
 	}
 
 	private void runThread(){
@@ -53,9 +74,6 @@ public class BubbleActivity extends Activity {
 			}
 		}));
 	}
-
-
-
 
 	/*
 	  SurfaceView is dedicated drawing surface in the view hierarchy.
@@ -133,28 +151,6 @@ public class BubbleActivity extends Activity {
 			canvas.drawBitmap(mBitmap, mY, mX, mPainter);
 		}
 
-		@Override
-		public boolean onTouchEvent(MotionEvent event){
-			super.onTouchEvent(event);
-			int action = event.getAction();
-			float x = event.getX();
-			float y = event.getY();
-			float otherX = getmX();
-			float otherY = getmY();
-			switch(action) {
-				case MotionEvent.ACTION_DOWN:
-					if (x < otherX + 800 && x >= otherX - 600 && y < otherY + 800 && y >= otherY - 600) {
-						count++;
-						relativeLayout.removeAllViewsInLayout();
-						mBubbleView = new BubbleView(getApplicationContext(), BitmapFactory.decodeResource(getResources(), R.drawable.b256));
-						relativeLayout.addView(mBubbleView);
-					}
-					break;
-			}
-			Log.d("SCORE", "" + count);
-			return false;
-		}
-
 		/** True iff bubble can move. */
 		private boolean move() {
 
@@ -184,6 +180,30 @@ public class BubbleActivity extends Activity {
 		@Override
 		public void surfaceChanged(SurfaceHolder holder, int format, int width,
 				int height) {
+		}
+
+		@Override
+		public boolean dispatchTouchEvent(MotionEvent event) {
+			View v = getCurrentFocus();
+			int action = event.getAction();
+			float x = event.getX();
+			float y = event.getY();
+			float otherX = getmX();
+			float otherY = getmY();
+			switch(action & MotionEvent.ACTION_MASK) {
+				case MotionEvent.ACTION_DOWN:
+					if (x < otherX + 800 && x >= otherX - 600 && y < otherY + 800 && y >= otherY - 600) {
+						count++;
+						relativeLayout.removeAllViewsInLayout();
+						mBubbleView = new BubbleView(getApplicationContext(), BitmapFactory.decodeResource(getResources(), R.drawable.b256));
+						relativeLayout.addView(mBubbleView);
+						return true;
+					}
+					break;
+			}
+			Log.d("SCORE", "" + count);
+			boolean ret = super.dispatchTouchEvent(event);
+			return ret;
 		}
 
 		/** When surface created, this creates its thread AND starts it running. */

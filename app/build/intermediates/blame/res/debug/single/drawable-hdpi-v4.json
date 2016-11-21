@@ -1,22 +1,42 @@
 [
     {
-        "merged": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\b64.png",
-        "source": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-hdpi\\b64.png"
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\b64.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-hdpi\\b64.png"
     },
     {
-        "merged": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\b256.png",
-        "source": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-hdpi\\b256.png"
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/b64.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/app/src/main/res/drawable-hdpi/b64.png"
     },
     {
-        "merged": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon.png",
-        "source": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-hdpi\\icon.png"
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\b256.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-hdpi\\b256.png"
     },
     {
-        "merged": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\b128.png",
-        "source": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-hdpi\\b128.png"
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-hdpi\\icon.png"
     },
     {
-        "merged": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\b512.png",
-        "source": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-hdpi\\b512.png"
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\b128.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-hdpi\\b128.png"
+    },
+    {
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/b512.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/app/src/main/res/drawable-hdpi/b512.png"
+    },
+    {
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\b512.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-hdpi\\b512.png"
+    },
+    {
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/icon.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/app/src/main/res/drawable-hdpi/icon.png"
+    },
+    {
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/b128.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/app/src/main/res/drawable-hdpi/b128.png"
+    },
+    {
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/b256.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/app/src/main/res/drawable-hdpi/b256.png"
     }
 ]
