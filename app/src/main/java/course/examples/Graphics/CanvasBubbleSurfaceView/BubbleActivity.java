@@ -29,8 +29,11 @@ public class BubbleActivity extends Activity {
 	BubbleView mBubbleView;
 	RelativeLayout relativeLayout;
 	String frameString;
-	public int count = 1;
-	public float isLessThanTenSeconds = System.currentTimeMillis();
+	String scoreString;
+	private long targetTime;
+	public int count = 0;
+	public float isLessThanTenSeconds = System.currentTimeMillis()/1000;
+	public long frameNum = 0;
 
 	/** Simply create layout and view. */
 	@Override
@@ -50,12 +53,12 @@ public class BubbleActivity extends Activity {
 			public void run() {
 				TextView textView = (TextView) findViewById(R.id.framerateText);
 				textView.setText(frameString);
+
+				TextView textViewScore = (TextView) findViewById(R.id.scoreText);
+				textViewScore.setText(scoreString);
 			}
 		}));
 	}
-
-
-
 
 	/*
 	  SurfaceView is dedicated drawing surface in the view hierarchy.
@@ -65,7 +68,6 @@ public class BubbleActivity extends Activity {
 	private class BubbleView extends SurfaceView implements
 			SurfaceHolder.Callback {
 
-		private long beginTimeMillis, endTimeMillis;
 		private final Bitmap mBitmap;
 		private int mBitmapHeightAndWidth, mBitmapHeightAndWidthAdj;
 		private final DisplayMetrics mDisplay;
@@ -127,15 +129,15 @@ public class BubbleActivity extends Activity {
 		/** drawing and rotation */
 		private void drawBubble(Canvas canvas) {
 			canvas.drawColor(Color.DKGRAY);
-			//mRotation += ROT_STEP;
-			//canvas.rotate(mRotation, mY + mBitmapHeightAndWidthAdj, mX
-			//		+ mBitmapHeightAndWidthAdj);
+			/*mRotation += ROT_STEP;
+			canvas.rotate(mRotation, mY + mBitmapHeightAndWidthAdj, mX
+					+ mBitmapHeightAndWidthAdj);
+			*/
 			canvas.drawBitmap(mBitmap, mY, mX, mPainter);
 		}
 
 		@Override
 		public boolean dispatchTouchEvent(MotionEvent event) {
-			View v = getCurrentFocus();
 			int action = event.getAction();
 			float x = event.getX();
 			float y = event.getY();
@@ -195,29 +197,30 @@ public class BubbleActivity extends Activity {
 			mDrawingThread = new Thread(new Runnable() {
 				public void run() {
 					Canvas canvas = null;
+					targetTime = System.currentTimeMillis() + 1000;
 					// While bubble within view, lock and draw.
 					while (!Thread.currentThread().isInterrupted() && move()) {
-						beginTimeMillis = System.currentTimeMillis();
 						canvas = mSurfaceHolder.lockCanvas();
-
+						frameNum++;
+						scoreString = getString(R.string.report_score, Long.toString(count));
+						if (System.currentTimeMillis() >= targetTime){
+							frameString = getString(R.string.report_framerate, Long.toString(frameNum));
+							frameNum = 0;
+							targetTime = System.currentTimeMillis() + 1000;
+						}
 						if (null != canvas) { // Lock canvas while updating bitmap
 							drawBubble(canvas);
 							mSurfaceHolder.unlockCanvasAndPost(canvas);
 						}
-						if ((System.currentTimeMillis() - isLessThanTenSeconds) > 10) {
+						if ((System.currentTimeMillis()/1000 - isLessThanTenSeconds) > 10) {
 							count = 0;
-							isLessThanTenSeconds = System.currentTimeMillis();
+							isLessThanTenSeconds = System.currentTimeMillis()/1000;
 						}
-
-						endTimeMillis = (System.currentTimeMillis() - beginTimeMillis)/60;
-						frameString = getString(R.string.report_framerate, Long.toString(endTimeMillis));
 						runThread();
-				}
-
+					}
 				}
 			});
 			mDrawingThread.start();
-
 		}
 		/** Surface destroyed; stop thread. */
 		@Override

@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">GraphicsCanvasBubbleSurfaceView</string>
     <string name="report_framerate">The framerate is %1$s</string>
+    <string name="report_score">Your score: %1$s</string>
 </resources>
