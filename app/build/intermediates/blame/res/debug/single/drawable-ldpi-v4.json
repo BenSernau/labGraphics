@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\icon.png",
-        "source": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-ldpi\\icon.png"
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/icon.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/app/src/main/res/drawable-ldpi/icon.png"
+    },
+    {
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\icon.png",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\drawable-ldpi\\icon.png"
     }
 ]

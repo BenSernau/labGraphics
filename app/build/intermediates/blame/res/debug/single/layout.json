@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
-        "source": "C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\layout\\main.xml"
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/app/build/intermediates/res/merged/debug/layout/main.xml",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/app/src/main/res/layout/main.xml"
+    },
+    {
+        "merged": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
+        "source": "/home/cs374/AndroidStudioProjects/labGraphics/C:\\Users\\bsern\\AndroidStudioProjects\\labGraphics\\app\\src\\main\\res\\layout\\main.xml"
     }
 ]
