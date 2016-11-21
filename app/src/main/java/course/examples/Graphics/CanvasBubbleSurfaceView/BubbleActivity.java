@@ -70,13 +70,13 @@ public class BubbleActivity extends Activity {
 		private int mBitmapHeightAndWidth, mBitmapHeightAndWidthAdj;
 		private final DisplayMetrics mDisplay;
 		private final int mDisplayWidth, mDisplayHeight;
-		private float mX, mY, mDx, mDy, mRotation;
+		private float mX, mY, mDx, mDy; //, mRotation;
 		private final SurfaceHolder mSurfaceHolder;
 		private final Paint mPainter = new Paint(); // control style and color
 		private Thread mDrawingThread;
 
 		private static final int MOVE_STEP = 1;
-		private static final float ROT_STEP = 0.5f;
+		//private static final float ROT_STEP = 0.5f;
 
 		public BubbleView(Context context, Bitmap bitmap) {
 			super(context);
@@ -115,7 +115,7 @@ public class BubbleActivity extends Activity {
 					mDy += mDy / 10;
 				}
 			}
-			mRotation = 1000.0f * r.nextFloat();
+			//mRotation = 1000.0f * r.nextFloat();
 
 			mPainter.setAntiAlias(true); // smooth edges of bitmap
 			// This will take care of changes to the bitmap
@@ -127,32 +127,34 @@ public class BubbleActivity extends Activity {
 		/** drawing and rotation */
 		private void drawBubble(Canvas canvas) {
 			canvas.drawColor(Color.DKGRAY);
-			mRotation += ROT_STEP;
-			canvas.rotate(mRotation, mY + mBitmapHeightAndWidthAdj, mX
-					+ mBitmapHeightAndWidthAdj);
+			//mRotation += ROT_STEP;
+			//canvas.rotate(mRotation, mY + mBitmapHeightAndWidthAdj, mX
+			//		+ mBitmapHeightAndWidthAdj);
 			canvas.drawBitmap(mBitmap, mY, mX, mPainter);
 		}
 
 		@Override
-		public boolean onTouchEvent(MotionEvent event){
-			super.onTouchEvent(event);
+		public boolean dispatchTouchEvent(MotionEvent event) {
+			View v = getCurrentFocus();
 			int action = event.getAction();
 			float x = event.getX();
 			float y = event.getY();
-			float otherX = getmX();
-			float otherY = getmY();
-			switch(action) {
+			float otherX = getmY();
+			float otherY = getmX();
+			switch(action & MotionEvent.ACTION_MASK) {
 				case MotionEvent.ACTION_DOWN:
-					if (x < otherX + 800 && x >= otherX - 600 && y < otherY + 800 && y >= otherY - 600) {
+					if (x < otherX + 100 && x >= otherX && y < otherY + 100 && y >= otherY) {
 						count++;
 						relativeLayout.removeAllViewsInLayout();
 						mBubbleView = new BubbleView(getApplicationContext(), BitmapFactory.decodeResource(getResources(), R.drawable.b256));
 						relativeLayout.addView(mBubbleView);
+						return true;
 					}
 					break;
 			}
 			Log.d("SCORE", "" + count);
-			return false;
+			boolean ret = super.dispatchTouchEvent(event);
+			return ret;
 		}
 
 		/** True iff bubble can move. */
